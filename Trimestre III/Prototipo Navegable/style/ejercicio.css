@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+.main-container {
+    display: flex;
+    height: calc(100vh - 70px); /* Subtract navbar height */
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.exercise-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.exercise-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.exercise-title i {
+    font-size: 20px;
+    color: var(--card);
+}
+
+.exercise-title h2 {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--secondary);
+}
+
+.exercise-info {
+    margin-bottom: 30px;
+}
+
+.date-info {
+    color: var(--card);
+    margin-bottom: 15px;
+}
+
+.score-section, .resolution-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.score-label, .resolution-label {
+    margin-right: 10px;
+    color: var(--secondary);
+}
+
+.score {
+    color: var(--card);
+}
+
+.checkmark {
+    color: var(--success);
+}
+
+.checkmark i {
+    font-size: 18px;
+}
+
+.exercise-content {
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.exercise-content p {
+    margin-bottom: 15px;
+    color: var(--card);
+}
+
+.view-code-btn {
+    background-color: var(--accent);
+    color: var(--secondary);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.view-code-btn:hover {
+    background-color: var(--warning);
+} 
