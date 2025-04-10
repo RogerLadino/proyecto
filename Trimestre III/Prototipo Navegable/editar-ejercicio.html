@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio</title>
+  <link rel="stylesheet" href="style/general.css">
+  <link rel="stylesheet" href="style/icons.css">
+  <link rel="stylesheet" href="style/navigation.css">
+  <link rel="stylesheet" href="style/ejercicio.css">
+</head>
+
+<body>
+  <nav class="top-navbar">
+    <div class="nav-left">
+      <a href="clases.html" class="logo-link">
+        <div class="app-logo"></div>
+        <h1 class="app-name">Nombre</h1>
+      </a>
+    </div>
+    <div class="nav-right">
+      <div class="user-circle">
+        <i class="icon-user"></i>
+        <div class="dropdown-menu">
+          <a href="index.html" class="dropdown-item">Cerrar sesión</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <aside class="sidebar">
+      <nav class="side-nav">
+        <ul>
+          <i class="divisor"></i>
+          <li class="nav-item home">
+            <a href="clases.html">
+              <i class="icon-home"></i>
+              <span>Inicio</span>
+            </a>
+          </li>
+          <i class="divisor"></i>
+          <li class="nav-item class1">
+            <div class="class-icon">
+              <i class="empty-square"></i>
+            </div>
+            <a href="lista-ejercicios.html">Clase 1</a>
+          </li>
+          <li class="nav-item class2">
+            <div class="class-icon">
+              <i class="empty-square"></i>
+            </div>
+            <a href="lista-ejercicios-profesor.html">Clase 2</a>
+          </li>
+          <li class="nav-item class3">
+            <div class="class-icon">
+              <i class="empty-square"></i>
+            </div>
+            <span>Clase 3</span>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="exercise-header">
+        <i class="icon-circle-empty"></i>
+        <h2>Editar Ejercicio</h2>
+      </div>
+
+      <div class="edit-form">
+        <div class="input">
+          <div class="input-label">
+            <i class="icon-circle-empty"></i>
+            <label>Nombre del ejercicio</label>
+          </div>
+          <input type="text" class="input-field" placeholder="Nombre del ejercicio">
+        </div>
+
+        <div class="input">
+          <div class="input-label">
+            <i class="icon-circle-empty"></i>
+            <label>Descripción</label>
+          </div>
+          <textarea class="textbox-field" placeholder="Descripción del ejercicio"></textarea>
+        </div>
+
+        <div class="input">
+          <div class="input-label">
+            <i class="icon-circle-empty"></i>
+            <label>Fecha</label>
+          </div>
+          <input type="datetime-local" class="date-input" value="06/04/2025 10:33 p.m.">
+        </div>
+
+        <div class="input">
+          <div class="input-label">
+            <i class="icon-circle-empty"></i>
+            <label>Código Inicial</label>
+          </div>
+          <div class="code-container">
+            <div class="code-header">
+              <select class="language-select">
+                <option value="python">Python</option>
+                <option value="cpp">C++</option>
+              </select>
+            </div>
+            <textarea class="code-editor" placeholder="Escribe tu código aquí...">int a = 1;
+int b = 2;</textarea>
+          </div>
+        </div>
+
+        <div class="input">
+          <div class="input-label">
+            <i class="icon-circle-empty"></i>
+            <label>Pruebas</label>
+            <div class="circle-plus">
+              <i class="icon-plus"></i>
+            </div>
+          </div>
+
+          <div class="test-section">
+            <div class="test-accordion">
+              <div class="test-header">
+                <div class="test-title">
+                  <span>Función: </span>
+                  <input type="text" class="underline-input" value="primeraResultado"
+                    placeholder="Nombre de la función">
+                </div>
+                <i class="icon-trash"></i>
+              </div>
+
+              <div class="test-content">
+                <div class="param-header">
+                  <span>Parámetros</span>
+                  <i class="icon-plus"></i>
+                </div>
+
+                <div class="param-grid">
+                  <div class="param-grid-header">
+                    <span>Tipo</span>
+                    <span>Valor</span>
+                  </div>
+                  <div class="param-row">
+                    <select class="param-select">
+                      <option value="int">Int</option>
+                      <option value="string">String</option>
+                      <option value="float">Float</option>
+                      <option value="boolean">Boolean</option>
+                      <option value="json">JSON</option>
+                    </select>
+                    <div class="param-value-container">
+                      <input type="text" value="123">
+                      <i class="icon-cancel"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="test-content">
+                <div class="param-header">
+                  <span>Debe retornar</span>
+                </div>
+
+                <div class="param-grid">
+                  <div class="param-grid-header">
+                    <span>Tipo</span>
+                    <span>Valor</span>
+                  </div>
+                  <div class="param-row">
+                    <select class="param-select">
+                      <option value="int">Int</option>
+                      <option value="string">String</option>
+                      <option value="float">Float</option>
+                      <option value="boolean">Boolean</option>
+                      <option value="json">JSON</option>
+                    </select>
+                    <div class="param-value-container">
+                      <input type="text" value="123">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <a href="ejercicio-profesor.html">
+            <button class="button-secondary">Guardar</button>
+          </a>
+          <a href="lista-ejercicios-profesor.html">
+            <button class="button">Borrar</button>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

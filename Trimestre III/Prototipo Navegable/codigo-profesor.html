@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio</title>
+  <link rel="stylesheet" href="style/general.css">
+  <link rel="stylesheet" href="style/icons.css">
+  <link rel="stylesheet" href="style/navigation.css">
+  <link rel="stylesheet" href="style/codigo.css">
+</head>
+
+<body>
+  <nav class="top-navbar">
+    <div class="nav-left">
+      <a href="clases.html" class="logo-link">
+        <div class="app-logo"></div>
+        <h1 class="app-name">Nombre</h1>
+      </a>
+    </div>
+    <div class="nav-right">
+      <div class="user-circle">
+        <i class="icon-user"></i>
+        <div class="dropdown-menu">
+          <a href="index.html" class="dropdown-item">Cerrar sesión</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <nav class="sidebar">
+      <a class="nav-item" href="ejercicio-profesor.html">
+        <i class="icon-circle-empty icon-accent"></i>
+        <span class="nav-item-header">Ejercicio 1</span>
+      </a>
+      <div class="nav-item">
+        <i class="icon-circle icon-accent"></i>
+        <span>Roger Ladino</span>
+      </div>
+      <div class="nav-item">
+        <i class="icon-circle icon-warning"></i>
+        <span>Nicolás Vanegas</span>
+      </div>
+      <div class="nav-item">
+        <i class="icon-circle icon-success"></i>
+        <span>Tomás Sánchez</span>
+      </div>
+    </nav>
+    <main class="main-content">
+      <div class="main-editor-container">
+        <div class="student-info">
+          <div class="student-info-item">
+            <i class="icon-circle icon-warning"></i>
+            Nicolás Vanegas
+          </div>
+          <div class="student-info-item">
+            <i class="icon-circle-empty student-icon"></i>
+            <p>Resuelto: </p>
+            <i class="icon-ok checkmark student-icon"></i>
+
+            <i class="icon-circle-empty student-icon"></i>
+            <p>Intentos: </p>
+            <p class="attempts student-icon">32</p>
+
+            <i class="icon-circle-empty student-icon"></i>
+            <p>Nota: </p>
+            <input type="text" class="underline-input note-input"> /100
+
+            <i class="icon-circle-empty student-icon"></i>
+            <p>A tiempo: </p>
+            <i class="icon-clock clock student-icon"></i>
+          </div>
+        </div>
+        <div class="editor-container">
+          <div class="editor-section">
+            <div class="code">
+              <div class="editor-title code-title">
+                <div class="editor-title-item">
+                  <i class="icon-circle-empty icon-accent"></i>
+                  <p>Código</p>
+                </div>
+                <div class="editor-title-item">
+                  <select class="language-select">
+                    <option value="python">Python</option>
+                    <option value="cpp">C++</option>
+                    <option value="cpp">HTML</option>
+                  </select>
+                  <i class="icon-play-circled icon-accent pointer"></i>
+                </div>
+              </div>
+              <div class="editor-body code-textarea">
+                <textarea name="code" id="code">
+def sayHi(name: String):
+  return f”Hello {name}, how are you?”
+
+def printSayHi(name: string)
+  str = sayHi(name)
+
+  print(str)
+
+printSayHi(“Roger”)
+            </textarea>
+              </div>
+            </div>
+          </div>
+          <div class="editor-section">
+            <div class="exercise">
+              <div class="editor-title exercise-title">
+                <div class="editor-title-item">
+                  <i class="icon-circle-empty icon-accent"></i>
+                  <p>Ejercicio 1</p>
+                </div>
+              </div>
+              <div class="editor-body exercise-description">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Non molestiae culpa reiciendis provident,
+                  quod
+                  natus voluptatibus, ipsa autem rem, in dolor commodi officia fuga fugiat nihil magnam nemo ad tempore.
+                </p>
+              </div>
+            </div>
+            <div class="console">
+              <div class="editor-title console-title">
+                <div class="editor-title-item">
+                  <i class="icon-circle-empty icon-accent"></i>
+                  <p>Consola</p>
+                </div>
+                <div class="editor-title-item">
+                  <p>Resuelto: </p>
+                  <i class="icon-ok checkmark console-icon"></i>
+                  <p>A tiempo: </p>
+                  <i class="icon-clock clock console-icon"></i>
+                </div>
+              </div>
+              <div class="editor-body console-info">
+                <p>
+                  Salida del programa:
+                  <br>
+                  Hello Roger, how are you?
+                  <br><br>
+                  Prueba #1 . . . . . . <i class="icon-success">CORRECTA</i>
+                  <br>
+                  Prueba #2 . . . . . . <i class="icon-success">CORRECTA</i>
+                  <br>
+                  Prueba #3 . . . . . . <i class="icon-success">CORRECTA</i>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

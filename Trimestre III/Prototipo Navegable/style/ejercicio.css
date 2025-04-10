@@ -1,104 +1,368 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: var(--primary);
-    color: var(--secondary);
-}
-
 .main-container {
     display: flex;
-    height: calc(100vh - 70px); /* Subtract navbar height */
+    height: calc(100vh - 70px);
 }
 
-/* Main Content Styles */
 .main-content {
     flex: 1;
-    padding: 30px;
+    padding: 0 20px;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+/* Titulo del ejercicio */
 
 .exercise-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 5px;
     margin-bottom: 20px;
+    width: 100%;
 }
 
-.exercise-title {
+.title-buttons {
     display: flex;
-    align-items: center;
     gap: 10px;
+    height: 100%;
+    margin-left: auto;
 }
 
-.exercise-title i {
-    font-size: 20px;
-    color: var(--card);
+.exercise-header>i {
+    font-size: 30px;
+    color: var(--accent);
 }
 
-.exercise-title h2 {
-    font-size: 24px;
-    font-weight: 500;
+.exercise-header span {
+    font-size: 28px;
     color: var(--secondary);
+    font-weight: 600;
 }
 
-.exercise-info {
-    margin-bottom: 30px;
-}
+/* Contenedor del ejercicio */
 
-.date-info {
-    color: var(--card);
-    margin-bottom: 15px;
-}
-
-.score-section, .resolution-section {
+.exercise-container {
     display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.score-label, .resolution-label {
-    margin-right: 10px;
-    color: var(--secondary);
-}
-
-.score {
-    color: var(--card);
-}
-
-.checkmark {
-    color: var(--success);
-}
-
-.checkmark i {
-    font-size: 18px;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .exercise-content {
-    margin-bottom: 30px;
-    line-height: 1.6;
+    flex: 2;
+    text-align: justify;
 }
 
-.exercise-content p {
+.date-info {
+    text-align: right;
     margin-bottom: 15px;
-    color: var(--card);
+    font-size: 14px;
 }
 
-.view-code-btn {
-    background-color: var(--accent);
+.exercise-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estadísticas del alumno */
+
+.statistics {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.statistic {
+    height: 100%;
+    width: 100%;
+}
+
+.statistic td {
+    padding: 15px 10px;
+    border: 1px solid var(--card);
+}
+
+.statistic-label {
     color: var(--secondary);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.2s;
+    gap: 5px;
 }
 
-.view-code-btn:hover {
-    background-color: var(--warning);
-} 
+@media (max-width: 800px) {
+    .exercise-container {
+        flex-direction: column;
+    }
+}
+
+/* Tabla de estudiantes */
+
+.exercise-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-header {
+    font-weight: bold;
+    text-align: left;
+}
+
+.table-row td,
+.table-header th {
+    padding: 10px;
+    border: 1px solid var(--card);
+}
+
+.table-row td {
+    padding: 10px 10px;
+}
+
+/* Contenedor del botón de editar clase */
+
+.title-button-container {
+    display: flex;
+    width: 150px;
+    height: 100%;
+    margin-left: auto;
+    text-decoration: none;
+}
+
+.button-link {
+    width: 100%;
+}
+
+.note-input {
+    width: 28px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Input de fecha */
+
+.date-input {
+    background-color: var(--card);
+    border: 2px solid transparent;
+    padding: 10px;
+    padding-left: 25px;
+    border-radius: 5px;
+    color: var(--secondary);
+    font-size: 16px;
+    width: 100%;
+    transition: border-color 0.2s ease;
+    cursor: pointer;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.date-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* Contenedor del código */
+
+.code-container {
+    background-color: var(--card);
+    border-radius: 5px;
+}
+
+.code-header {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+
+.code-editor {
+    width: 100%;
+    min-height: 200px;
+    background-color: var(--card);
+    border: none;
+    color: var(--secondary);
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 5px 15px;
+    resize: vertical;
+}
+
+.code-editor:focus {
+    outline: none;
+}
+
+/* Sección de pruebas */
+
+.test-accordion {
+    background-color: var(--card);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.test-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.test-title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--secondary);
+    font-size: 14px;
+}
+
+.test-header i {
+    color: var(--secondary);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.test-content {
+    padding: 15px;
+}
+
+.param-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    color: var(--secondary);
+    font-size: 14px;
+}
+
+.param-header i {
+    cursor: pointer;
+}
+
+.param-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--card);
+}
+
+.param-grid-header {
+    display: contents;
+}
+
+.param-grid-header span {
+    padding: 10px;
+    color: var(--secondary);
+    font-size: 14px;
+    border: 1px solid var(--secondary);
+}
+
+.param-row {
+    display: contents;
+}
+
+.param-value-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--secondary);
+}
+
+.param-value-container input {
+    background-color: var(--card);
+    border: none;
+    padding: 10px;
+    padding-right: 30px;
+    color: var(--secondary);
+    font-size: 14px;
+    width: 100%;
+}
+
+.param-value-container input:focus {
+    outline: none;
+}
+
+.param-value-container i {
+    position: absolute;
+    right: 10px;
+    color: var(--secondary);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.param-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0;
+}
+
+.param-actions i {
+    color: var(--secondary);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.param-select {
+    background-color: var(--card);
+    border: 1px solid var(--secondary);
+    padding: 10px;
+    color: var(--secondary);
+    font-size: 14px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.param-select:focus {
+    outline: none;
+}
+
+.param-select option {
+    background-color: var(--card);
+    color: var(--secondary);
+    padding: 10px;
+}
+
+.input-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.circle-plus {
+    background-color: var(--card);
+    border-radius: 100%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.circle-plus i {
+    color: var(--secondary);
+    font-size: 14px;
+}
+
+/* Grupo de botones de editar y borrar */
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-group>* {
+    width: 100%;
+    max-width: 200px;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+}
