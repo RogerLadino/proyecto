@@ -7,6 +7,19 @@
   --success: #32E875;
 }
 
+.main-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.main-content {
+  width: 100%;
+  height: 100%;
+  padding: 0px 10px;
+}
+
 .icon-warning {
   color: var(--warning);
 }
