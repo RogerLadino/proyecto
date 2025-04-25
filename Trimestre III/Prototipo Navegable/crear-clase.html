@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style/general.css">
   <link rel="stylesheet" href="style/icons.css">
   <link rel="stylesheet" href="style/navigation.css">
-  <link rel="stylesheet" href="style/ejercicio.css">
+  <link rel="stylesheet" href="style/clases.css">
 </head>
 
 <body>
@@ -64,60 +64,30 @@
     </aside>
 
     <main class="main-content">
-      <div class="exercise-header">
-        <i class="icon-circle-empty"></i>
-        <span class="ejercicio-titulo">Ejercicio 1</span>
-      </div>
-
-      <div class="exercise-container">
-        <div class="exercise-content">
-          <p class="date-info">
-          </p>
-          <p class="descripcion-ejercicio">
-          </p>
+      <div class="titulo-clase">
+        <div class="titulo">
+          <div class="cuadrado"></div>
+          <h1>Crear Clase</h1>
         </div>
-        <div class="exercise-info">
-          <table class="statistics">
-            <tbody>
-              <tr class="statistic">
-                <td class="statistic-label">
-                  <i class="icon-circle-empty"></i>
-                  <span>Nota</span>
-                </td>
-                <td class="score">0/100</td>
-              </tr>
-              <tr class="statistic">
-                <td class="statistic-label">
-                  <i class="icon-circle-empty"></i>
-                  <span>Resuelto</span>
-                </td>
-                <td>
-                  <div class="checkmark">
-                    <i class="icon-cancel"></i>
-                  </div>
-                </td>
-              </tr>
-              <tr class="statistic">
-                <td class="statistic-label">
-                  <i class="icon-circle-empty"></i>
-                  <span>A tiempo</span>
-                </td>
-                <td>
-                  <div class="clock">
-                    <i class="icon-clock"></i>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <a href="codigo.html">
-            <button class="button">Ver código</button>
+      </div>
+      <div class="contenedor">
+        <div class="input">
+          <div class="label">
+            <i class="icon-circle-empty"></i>
+            <p>Nombre de la clase</p>
+          </div>
+          <div class="campo">
+            <input type="text">
+          </div>
+        </div>
+        <div class="botones">
+          <a class="boton-guardar" href="clases.html">
+            Crear
           </a>
         </div>
       </div>
     </main>
   </div>
-  <script type="module" src="js/features/ejercicios/ejercicio.js"></script>
 </body>
 
 </html>

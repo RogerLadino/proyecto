@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style/general.css">
   <link rel="stylesheet" href="style/icons.css">
   <link rel="stylesheet" href="style/navigation.css">
+  <link rel="stylesheet" href="style/tablas.css">
   <link rel="stylesheet" href="style/codigo.css">
 </head>
 
@@ -33,36 +34,24 @@
     <nav class="sidebar">
       <a class="nav-item" href="ejercicio-profesor.html">
         <i class="icon-circle-empty icon-accent"></i>
-        <span class="nav-item-header">Ejercicio 1</span>
+        <span class="nav-item-header ejercicio-titulo">Ejercicio 1</span>
       </a>
-      <div class="nav-item">
-        <i class="icon-circle icon-accent"></i>
-        <span>Roger Ladino</span>
-      </div>
-      <div class="nav-item">
-        <i class="icon-circle icon-warning"></i>
-        <span>Nicolás Vanegas</span>
-      </div>
-      <div class="nav-item">
-        <i class="icon-circle icon-success"></i>
-        <span>Tomás Sánchez</span>
-      </div>
     </nav>
     <main class="main-content">
       <div class="main-editor-container">
         <div class="student-info">
           <div class="student-info-item">
             <i class="icon-circle icon-warning"></i>
-            Nicolás Vanegas
+            <p class="nombre-usuario"></p>
           </div>
           <div class="student-info-item">
             <i class="icon-circle-empty student-icon"></i>
             <p>Resuelto: </p>
-            <i class="icon-ok checkmark student-icon"></i>
+            <i class="icon-cancel student-icon"></i>
 
             <i class="icon-circle-empty student-icon"></i>
             <p>Intentos: </p>
-            <p class="attempts student-icon">32</p>
+            <p class="attempts student-icon">0</p>
 
             <i class="icon-circle-empty student-icon"></i>
             <p>Nota: </p>
@@ -83,25 +72,15 @@
                 </div>
                 <div class="editor-title-item">
                   <select class="language-select">
-                    <option value="python">Python</option>
+                    <option selected value="python">Python</option>
                     <option value="cpp">C++</option>
-                    <option value="cpp">HTML</option>
+                    <option value="html">HTML</option>
                   </select>
                   <i class="icon-play-circled icon-accent pointer"></i>
                 </div>
               </div>
               <div class="editor-body code-textarea">
-                <textarea name="code" id="code">
-def sayHi(name: String):
-  return f”Hello {name}, how are you?”
-
-def printSayHi(name: string)
-  str = sayHi(name)
-
-  print(str)
-
-printSayHi(“Roger”)
-            </textarea>
+                <textarea name="code" id="code"></textarea>
               </div>
             </div>
           </div>
@@ -114,11 +93,11 @@ printSayHi(“Roger”)
                 </div>
               </div>
               <div class="editor-body exercise-description">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Non molestiae culpa reiciendis provident,
-                  quod
-                  natus voluptatibus, ipsa autem rem, in dolor commodi officia fuga fugiat nihil magnam nemo ad tempore.
+                <p class="descripcion-ejercicio">
                 </p>
+                <div class="pruebas">
+
+                </div>
               </div>
             </div>
             <div class="console">
@@ -138,13 +117,9 @@ printSayHi(“Roger”)
                 <p>
                   Salida del programa:
                   <br>
-                  Hello Roger, how are you?
+                  15
                   <br><br>
                   Prueba #1 . . . . . . <i class="icon-success">CORRECTA</i>
-                  <br>
-                  Prueba #2 . . . . . . <i class="icon-success">CORRECTA</i>
-                  <br>
-                  Prueba #3 . . . . . . <i class="icon-success">CORRECTA</i>
                 </p>
               </div>
             </div>
@@ -153,6 +128,7 @@ printSayHi(“Roger”)
       </div>
     </main>
   </div>
+  <script type="module" src="./js/features/codigo/codigo.profesor.js"></script>
 </body>
 
 </html>

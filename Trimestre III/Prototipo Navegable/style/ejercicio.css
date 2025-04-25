@@ -46,6 +46,7 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
+    width: 100%;
 }
 
 .exercise-content {
@@ -94,27 +95,7 @@
     }
 }
 
-/* Tabla de estudiantes */
 
-.exercise-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.table-header {
-    font-weight: bold;
-    text-align: left;
-}
-
-.table-row td,
-.table-header th {
-    padding: 10px;
-    border: 1px solid var(--card);
-}
-
-.table-row td {
-    padding: 10px 10px;
-}
 
 /* Contenedor del botón de editar clase */
 
@@ -320,7 +301,7 @@
     padding: 10px;
 }
 
-.input-label {
+tinput-label {
     display: flex;
     align-items: center;
     gap: 5px;

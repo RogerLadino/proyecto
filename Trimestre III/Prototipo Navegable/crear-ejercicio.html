@@ -75,7 +75,7 @@
             <i class="icon-circle-empty"></i>
             <label>Nombre del ejercicio</label>
           </div>
-          <input type="text" class="input-field" placeholder="Nombre del ejercicio">
+          <input type="text" class="input-field" placeholder="Nombre del ejercicio" id="nombre">
         </div>
 
         <div class="input">
@@ -83,7 +83,7 @@
             <i class="icon-circle-empty"></i>
             <label>Descripción</label>
           </div>
-          <textarea class="textbox-field" placeholder="Descripción del ejercicio"></textarea>
+          <textarea class="textbox-field" placeholder="Descripción del ejercicio" id="descripcion"></textarea>
         </div>
 
         <div class="input">
@@ -91,7 +91,7 @@
             <i class="icon-circle-empty"></i>
             <label>Fecha</label>
           </div>
-          <input type="datetime-local" class="date-input" value="06/04/2025 10:33 p.m.">
+          <input type="datetime-local" class="date-input" id="fecha-entrega">
         </div>
 
         <div class="input">
@@ -101,98 +101,36 @@
           </div>
           <div class="code-container">
             <div class="code-header">
-              <select class="language-select">
+              <select class="language-select" id="lenguaje">
                 <option value="python">Python</option>
                 <option value="cpp">C++</option>
               </select>
             </div>
-            <textarea class="code-editor" placeholder="Escribe tu código aquí..."></textarea>
+            <textarea class="code-editor" placeholder="Escribe tu código aquí..." id="codigo-inicial"></textarea>
           </div>
         </div>
 
-        <div class="input">
+        <div class="input" id="lista-pruebas">
           <div class="input-label">
             <i class="icon-circle-empty"></i>
             <label>Pruebas</label>
-            <div class="circle-plus">
+            <div class="circle-plus" id="boton-crear-prueba" onmousedown="crearElementoPrueba()">
               <i class="icon-plus"></i>
             </div>
           </div>
 
-          <div class="test-section">
-            <div class="test-accordion">
-              <div class="test-header">
-                <div class="test-title">
-                  <span>Función: </span>
-                  <input type="text" class="underline-input" value="primeraResultado"
-                    placeholder="Nombre de la función">
-                </div>
-                <i class="icon-trash"></i>
-              </div>
+          <div class="test-section pruebas">
+          </div>
 
-              <div class="test-content">
-                <div class="param-header">
-                  <span>Parámetros</span>
-                  <i class="icon-plus"></i>
-                </div>
-
-                <div class="param-grid">
-                  <div class="param-grid-header">
-                    <span>Tipo</span>
-                    <span>Valor</span>
-                  </div>
-                  <div class="param-row">
-                    <select class="param-select">
-                      <option value="int">Int</option>
-                      <option value="string">String</option>
-                      <option value="float">Float</option>
-                      <option value="boolean">Boolean</option>
-                      <option value="json">JSON</option>
-                    </select>
-                    <div class="param-value-container">
-                      <input type="text" value="123">
-                      <i class="icon-cancel"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="test-content">
-                <div class="param-header">
-                  <span>Debe retornar</span>
-                </div>
-
-                <div class="param-grid">
-                  <div class="param-grid-header">
-                    <span>Tipo</span>
-                    <span>Valor</span>
-                  </div>
-                  <div class="param-row">
-                    <select class="param-select">
-                      <option value="int">Int</option>
-                      <option value="string">String</option>
-                      <option value="float">Float</option>
-                      <option value="boolean">Boolean</option>
-                      <option value="json">JSON</option>
-                    </select>
-                    <div class="param-value-container">
-                      <input type="text" value="123">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="button-group">
+            <a>
+              <button class="button-secondary" id="boton-crear-ejercicio">Guardar</button>
+            </a>
           </div>
         </div>
-
-        <div class="button-group">
-          <a href="lista-ejercicios-profesor.html">
-            <button class="button-secondary">Guardar</button>
-          </a>
-        </div>
-      </div>
     </main>
   </div>
+  <script src="./js/features/ejercicios/ejercicio.crear.js" type="module"></script>
 </body>
 
 </html>
