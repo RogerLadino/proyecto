@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    if (!DB.users.some(u => u.email === email)) {
+    if (!DB.users.some(u => u.correo == email)) {
       alert('No hay cuenta registrada con este email');
       return;
     }

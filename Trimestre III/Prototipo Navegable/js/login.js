@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // 5. Redirección
       alert('¡Bienvenido! Redirigiendo...');
       setTimeout(() => {
-        window.location.href = 'index.html';
+        window.location.href = 'clases.html';
       }, 1000);
       
     } catch (error) {

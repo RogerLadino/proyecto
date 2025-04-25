@@ -8,24 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     
     try {
-      // 1. Limpiar sesión previa (si existe la función)
-      if (typeof DB.clearCurrentUser === 'function') {
-        DB.clearCurrentUser();
-      } else {
-        localStorage.removeItem('currentUser'); // Fallback
-      }
-      
-      // 2. Obtener datos del formulario
       const userData = {
-        email: document.querySelector('input[type="email"]').value.trim(),
-        password: document.querySelector('input[type="password"]').value.trim()
+        correo: document.querySelector('input[type="email"]').value.trim(),
+        contraseña: document.querySelector('input[type="password"]').value.trim(),
+        nombre1: document.querySelector('input#nombre1').value.trim(),
+        nombre2: document.querySelector('input#nombre2').value.trim(),
+        apellido1: document.querySelector('input#apellido1').value.trim(),
+        apellido2: document.querySelector('input#apellido2').value.trim(),
       };
-      
-      // 3. Validaciones
-      if (!userData.email || !userData.password) {
-        alert('Email y contraseña son obligatorios');
-        return;
-      }
       
       // 4. Verificar si el email ya existe
       if (DB.findUserByEmail(userData.email)) {
@@ -35,9 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // 5. Crear y guardar usuario
       const newUser = {
-        id: Date.now(),
+        idUsuario: Date.now(),
         ...userData,
-        createdAt: new Date().toISOString()
       };
       
       DB.users.push(newUser);

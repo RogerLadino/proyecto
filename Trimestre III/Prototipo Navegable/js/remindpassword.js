@@ -17,18 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const newPassword = form.querySelector('input[type="password"]:first-of-type').value;
     const confirmPassword = form.querySelector('input[type="password"]:last-of-type').value;
 
-    if (newPassword !== confirmPassword) {
+    if (newPassword != confirmPassword) {
       alert('Las contraseñas no coinciden');
       return;
     }
 
-    const user = DB.users.find(u => u.email === resetData.email);
+    const user = DB.users.find(u => u.correo == resetData.email);
     if (!user) {
       alert('Usuario no encontrado');
       return;
     }
 
-    user.password = newPassword;
+    user.contraseña = newPassword;
     DB.saveUsers();
     localStorage.removeItem('resetData');
     

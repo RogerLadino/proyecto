@@ -1,15 +1,15 @@
 // js/storage.js
 export const DB = {
-    users: JSON.parse(localStorage.getItem('usersDB')) || [],
+    users: JSON.parse(localStorage.getItem('usuarios')) || [],
     
     // Guardar usuarios en localStorage
     saveUsers() {
-      localStorage.setItem('usersDB', JSON.stringify(this.users));
+      localStorage.setItem('usuarios', JSON.stringify(this.users));
     },
     
     // Establecer usuario actual
     setCurrentUser(user) {
-      localStorage.setItem('currentUser', JSON.stringify(user));
+      localStorage.setItem('idUsuario', parseInt(user.idUsuario));
     },
     
     // Obtener usuario actual
@@ -23,10 +23,14 @@ export const DB = {
       if (!email || !password) return null;
       
       return this.users.find(user => 
-        user.email && 
-        user.email.toLowerCase() === email.toLowerCase() && 
-        user.password === password
+        user.correo&& 
+        user.correo.toLowerCase() === email.toLowerCase() && 
+        user.contraseña === password 
       );
+    },
+
+    findUserByEmail(email){
+      return this.users.find(user => user.correo == email);
     },
     
     // Limpiar todos los datos (útil para pruebas)

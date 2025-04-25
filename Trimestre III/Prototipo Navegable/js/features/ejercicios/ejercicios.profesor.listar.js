@@ -1,5 +1,6 @@
 import { obtenerIdAula } from "../../db/aulas.db.js";
 import { obtenerListaEjerciciosPorAula } from "../../db/ejercicios.db.js";
+import { actualizarCodigoAula, actualizarNombreAula } from "../aulas/aula.handler.js";
 
 const listaEjercicios = document.getElementById('lista-ejercicios-profesor');
 
@@ -20,6 +21,9 @@ export const seleccionarEjercicio = (idEjercicio, href) => {
   localStorage.setItem("idEjercicio", idEjercicio);
   window.location.href = href;
 }
+
+actualizarCodigoAula()
+actualizarNombreAula()
 
 // Exportar la función para que esté disponible en el contexto global
 window.seleccionarEjercicio = seleccionarEjercicio;
