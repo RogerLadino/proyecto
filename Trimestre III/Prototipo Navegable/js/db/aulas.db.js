@@ -1,3 +1,4 @@
+import { generarCodigoAleatorio } from "../utils/codigoAlAzar.js";
 import { obtenerIdUsuario, obtenerUsuario } from "./usuarios.db.js";
 
 export const obtenerIdAula = () => {
@@ -16,12 +17,16 @@ export const obtenerAula = (idAula = obtenerIdAula()) => {
   return obtenerAulas().find(aula => aula.idAula == idAula);
 }
 
-export const obtenerAulasPorUsuario = (paramIdUsuario = obtenerIdUsuario()) => {
+export const obtenerAulasPertenecientes = (paramIdUsuario = obtenerIdUsuario()) => {
   const usuariosAulas = obtenerUsuariosAulas();
 
   return usuariosAulas
     .filter(([idUsuario, idAula]) => (idUsuario == paramIdUsuario || paramIdUsuario == obtenerAula(idAula).idUsuario))
     .map(([, idAula]) => obtenerAulas().find(aula => aula.idAula == idAula));
+}
+
+export const obtenerAulasDictadas = (paramIdUsuario = obtenerIdUsuario()) => {
+  return obtenerAulas().filter(aula => aula.idUsuario == paramIdUsuario);
 }
 
 export const obtenerAulaSegunCodigo = (codigo) => {
@@ -37,7 +42,7 @@ export const obtenerUsuariosEnAula = (paramIdAula = obtenerIdAula()) => {
   return usuariosAulas.map(([idUsuario, idAula]) => {
     if (idAula == paramIdAula)
       return obtenerUsuario(idUsuario)
-  })
+  }) || []
 }
 
 export const unirUsuarioAula = (idUsuario = obtenerIdUsuario(), idAula) => {
@@ -60,4 +65,39 @@ export const unirseAula = (idUsuario = obtenerIdUsuario(), codigo) => {
   }
 
   unirUsuarioAula(idUsuario, aula.idAula)  
+}
+
+export const crearAula = (nombre) => {
+  const clases = obtenerAulas();
+
+  const nuevaClase = {
+    idAula: clases.length > 0 ? clases[clases.length - 1].idAula + 1 : 0,
+    nombre: nombre,
+    codigo: generarCodigoAleatorio(),
+    idUsuario: obtenerIdUsuario(),
+  };
+
+  clases.push(nuevaClase);
+
+  localStorage.setItem("aulas", JSON.stringify(clases));
+
+  return nuevaClase
+}
+
+export const editarAula = (idAula = obtenerIdAula(), nombre) => {
+  const aulas = obtenerAulas();
+
+  const aulaIndex = aulas.findIndex(aula => aula.idAula == idAula);
+
+  aulas[aulaIndex].nombre = nombre;
+
+  localStorage.setItem("aulas", JSON.stringify(aulas));
+}
+
+export const eliminarAula = (idAula = obtenerIdAula()) => {
+  const aulas = obtenerAulas();
+
+  const nuevasAulas = aulas.filter(aula => aula.idAula != idAula );
+
+  localStorage.setItem('aulas', JSON.stringify(nuevasAulas)); 
 }

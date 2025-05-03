@@ -34,6 +34,11 @@ const crearFilaTabla = (codigo, usuario) => {
 const renderizarTablaCodigos = () => {
   const usuarios = obtenerUsuariosEnAula();
 
+  if(usuarios.length == 0){
+    return
+  }
+  console.log(usuarios)
+
   const tableBody = document.querySelector('.table-body');
   tableBody.innerHTML = usuarios.map(usuario => {
     const codigo = obtenerCodigoUsuario(usuario.idUsuario)

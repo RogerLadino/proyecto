@@ -1,6 +1,6 @@
 import { obtenerIdUsuario, obtenerUsuario } from "../../db/usuarios.db.js";
 import { obtenerEjercicio, obtenerIdEjercicio } from "../../db/ejercicios.db.js";
-import { obtenerListaCodigos, obtenerCodigo, crearCodigo, editarCodigo, actualizarNota, obtenerIdCodigo, obtenerListaCodigosPorAula } from "../../db/codigo.db.js";
+import { obtenerListaCodigos, obtenerCodigo, crearCodigo, editarCodigo, actualizarNota, obtenerIdCodigo, obtenerListaCodigosPorEjercicio } from "../../db/codigo.db.js";
 import { esProfesor, obtenerAula } from "../../db/aulas.db.js";
 
 export const mostrarTituloEjercicio = (titulo) => {
@@ -78,7 +78,7 @@ export const cambiarCodigo = (idCodigo) => {
 };
 
 export const mostrarBarraLateral = () => {
-  const codigos = obtenerListaCodigosPorAula();
+  const codigos = obtenerListaCodigosPorEjercicio();
   const sidebar = document.querySelector('.sidebar');
 
   if (esProfesor()) {
@@ -127,9 +127,10 @@ export const mostrarNota = () => {
 
 export const mostrarCodigo = () => {
   const idUsuario = obtenerIdUsuario();
+  const idEjercicio = obtenerIdEjercicio();
   const codigos = obtenerListaCodigos();
 
-  let codigoUsuario = codigos.find(c => c.idUsuario == idUsuario) || crearCodigo();
+  let codigoUsuario = codigos.find(c => c.idUsuario == idUsuario && c.idEjercicio == idEjercicio) || crearCodigo();
   localStorage.setItem("idCodigo", codigoUsuario.idCodigo);
 };
 

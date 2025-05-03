@@ -96,7 +96,7 @@ export const mostrarParametros = (parametrosJSON, salidaJSON) => {
     <div class="test-content">
       <div class="param-header">
         <span>Parámetros</span>
-        <i class="icon-plus" onmousedown="crearElementoParametro(event)"></i>a
+        <i class="icon-plus" onmousedown="crearElementoParametro(event)"></i>
       </div>
       <div class="param-grid parametros">
         <div class="param-grid-header">

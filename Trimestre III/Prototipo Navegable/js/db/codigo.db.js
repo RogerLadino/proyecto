@@ -10,10 +10,10 @@ export const obtenerListaCodigos = () => {
   return JSON.parse(localStorage.getItem("codigos")) || [];
 }
 
-export const obtenerListaCodigosPorAula = (idAula = obtenerIdAula()) => {
+export const obtenerListaCodigosPorEjercicio = (idEjercicio = obtenerIdEjercicio()) => {
   const codigos = obtenerListaCodigos();
 
-  const codigosAula = codigos.filter(c => c.idAula == idAula)
+  const codigosAula = codigos.filter(c => c.idEjercicio == idEjercicio)
 
   return codigosAula
 }

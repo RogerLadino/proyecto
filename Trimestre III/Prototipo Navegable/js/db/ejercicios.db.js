@@ -33,8 +33,9 @@ export const crearEjercicio = (nombre, descripcion, codigoInicial, fechaEntrega)
     descripcion: descripcion,
     codigoInicial: codigoInicial,
     fechaEntrega: fechaEntrega,
-    idAula: 0
+    idAula: obtenerIdAula()
   };
+
   ejercicios.push(nuevoEjercicio);
 
   localStorage.setItem('ejercicios', JSON.stringify(ejercicios));
