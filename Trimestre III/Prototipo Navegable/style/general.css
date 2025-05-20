@@ -148,13 +148,12 @@ body {
 /* Input que es usado para una sola línea */
 
 .underline-input {
-  background-color: transparent;
+  background-color: var(--card);
   border: none;
-  border-bottom: 2px solid var(--secondary);
+  border-radius: 5px;
   color: var(--secondary);
   font-size: 14px;
-  padding: 2px 0;
-  margin-top: 2px;
+  padding: 2px 5px;
   width: 100%;
 }
 

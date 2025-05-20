@@ -21,7 +21,7 @@ export const obtenerAulasPertenecientes = (paramIdUsuario = obtenerIdUsuario()) 
   const usuariosAulas = obtenerUsuariosAulas();
 
   return usuariosAulas
-    .filter(([idUsuario, idAula]) => (idUsuario == paramIdUsuario || paramIdUsuario == obtenerAula(idAula).idUsuario))
+    .filter(([idUsuario]) => (idUsuario == paramIdUsuario))
     .map(([, idAula]) => obtenerAulas().find(aula => aula.idAula == idAula));
 }
 

@@ -1,5 +1,6 @@
 import { obtenerPruebasPorEjercicio, editarPrueba, crearPrueba } from "../../db/pruebas.db.js";
 import { parsearValorParametro, obtenerNombreDeTipoDeParametro } from "../../utils/parametros.js";
+import { toggleDropdown } from "../../utils/dropdown.js";
 
 const crearOpcionesSelect = (tipoSeleccionado) => {
   const tipos = ['int', 'string', 'float', 'boolean', 'json'];
@@ -15,7 +16,7 @@ const crearContenedorParametro = (tipoParametro, valorParametro) => `
     </select>
     <div class="param-value-container">
       <input type="text" value="${valorParametro}" class="valor-parametro">
-      <i class="icon-cancel" onmousedown="eliminarElementoPrueba(event)"></i>
+      <i class="icon-cancel" onmousedown="eliminarParametro(event)"></i>
     </div>
   </div>
 `;
@@ -55,9 +56,11 @@ export const obtenerSalidaDesdeHTML = (prueba) => {
   return JSON.stringify(parsearValorParametro(tipoParametro, valorRetorno));
 };
 
+
+
 export const guardarPruebas = (idEjercicio) => {
   document.querySelectorAll('.prueba').forEach(prueba => {
-    
+
     const nombreFuncion = prueba.querySelector('.nombre-funcion').value;
     const entrada = obtenerParametrosDesdeHTML(prueba);
     const salida = obtenerSalidaDesdeHTML(prueba);
@@ -76,12 +79,28 @@ export const crearElementoPrueba = () => {
     <div class="test-accordion prueba">
       <div class="test-header">
         <div class="test-title">
-          <span>Función: </span>
-          <input type="text" class="underline-input nombre-funcion" placeholder="nombre de la función">
+          <span>Prueba</span>
         </div>
         <i class="icon-trash" onmousedown="eliminarElementoPrueba(event)"></i>
+        <i class="icon-down-dir dropdown-toggle" onclick="toggleDropdown(event)"></i>
       </div>
-      ${mostrarParametros('[]', '1')}
+      <div class="test-main-content">
+        <div class="test-content">
+          <div class="test-content">
+            <div class="param-header">
+              <span>Función</span>
+            </div>
+            <div class="param-grid">
+              <div class="param-grid-header">
+                <span>Nombre</span>
+              </div>
+              <div class="param-row">
+                <input type="text" class="valor-parametro nombre-funcion" placeholder="Nombre de la función">
+              </div>
+            </div>
+          </div>
+        ${mostrarParametros('[]', '1')}
+      </div>
     </div>
   `;
   document.querySelector('.pruebas').innerHTML += elemento;
@@ -90,7 +109,6 @@ export const crearElementoPrueba = () => {
 export const mostrarParametros = (parametrosJSON, salidaJSON) => {
   const parametros = JSON.parse(parametrosJSON);
   const listaParametros = parametros.map(parametro => crearContenedorParametro(obtenerNombreDeTipoDeParametro(parametro), parametro)).join('');
-  const tablaSalida = crearSalidaHTML(obtenerNombreDeTipoDeParametro(JSON.parse(salidaJSON)), JSON.parse(salidaJSON));
 
   return `
     <div class="test-content">
@@ -107,7 +125,23 @@ export const mostrarParametros = (parametrosJSON, salidaJSON) => {
       </div>
     </div>
     <div class="test-content">
-      ${tablaSalida}
+      <div class="param-header">
+        <span>Debe retornar</span>
+      </div>
+      <div class="param-grid">
+        <div class="param-grid-header">
+          <span>Tipo</span>
+          <span>Valor</span>
+        </div>
+        <div class="param-row">
+          <select class="param-select tipo-retorno">
+            ${crearOpcionesSelect(obtenerNombreDeTipoDeParametro(JSON.parse(salidaJSON)))}
+          </select>
+          <div class="param-value-container">
+            <input type="text" value="${JSON.parse(salidaJSON)}" class="valor-retorno valor-parametro ">
+          </div>
+        </div>
+      </div>
     </div>
   `;
 };
@@ -121,12 +155,27 @@ export const cargarPruebas = () => {
         <div class="id-prueba" style="display: none;">${prueba.idPrueba}</div>
         <div class="test-header">
           <div class="test-title">
-            <span>Función: </span>
-            <input type="text" class="underline-input nombre-funcion" value="${prueba.nombreFuncion}">
+            <span>Prueba</span>
           </div>
           <i class="icon-trash" onmousedown="eliminarElementoPrueba(event)"></i>
+          <i class="icon-down-dir dropdown-toggle" onclick="toggleDropdown(event)"></i>
         </div>
-        ${mostrarParametros(prueba.entrada, prueba.salida)}
+        <div class="test-main-content">
+          <div class="test-content">
+            <div class="param-header">
+              <span>Función</span>
+            </div>
+            <div class="param-grid">
+              <div class="param-grid-header">
+                <span>Nombre</span>
+              </div>
+              <div class="param-row">
+                <input type="text" class="valor-parametro nombre-funcion" placeholder="Nombre de la función" value="${prueba.nombreFuncion}">
+              </div>
+            </div>
+          </div>
+          ${mostrarParametros(prueba.entrada, prueba.salida)}
+        </div>
       </div>
     `;
     document.querySelector('.pruebas').innerHTML += elemento;
@@ -137,9 +186,13 @@ export const eliminarElementoPrueba = (event) => {
   event.target.closest('.prueba').remove();
 };
 
+export const eliminarParametro = (event) => {
+  event.target.closest('.parametro').remove();
+}
+
 export const crearElementoParametro = (event) => {
   const contenedor = event.target.closest('.test-content').querySelector('.parametros');
-  contenedor.innerHTML += crearContenedorParametro('string', '');
+  contenedor.insertAdjacentHTML('beforeend', crearContenedorParametro('string', ''));
 };
 
 export const mostrarPruebas = () => {
@@ -147,34 +200,73 @@ export const mostrarPruebas = () => {
   const element = document.querySelector('.pruebas');
 
   pruebas.forEach(prueba => {
-    const argumentos = JSON.parse(prueba.entrada).map(parametro => `
-      <tr class="table-row">
-        <td>${obtenerNombreDeTipoDeParametro(parametro)}</td>
-      </tr>
+    const parametrosHTML = JSON.parse(prueba.entrada).map(parametro => `
+      <div class="param-grid-header">
+        <span>${obtenerNombreDeTipoDeParametro(parametro)}</span>
+        <span>${parametro}</span>
+      </div>
     `).join('');
 
-    element.innerHTML += `
-      <table class="tabla-pruebas">
-        <thead class="table-header">
-          <th>Función: ${prueba.nombreFuncion}</th>
-        </thead>
-        <thead>
-          <tr class="table-header">
-            <th>Argumentos</th>
-          </tr>
-        </thead>
-        <tbody class="table-body">
-          ${argumentos}
-        </tbody>
-        <thead>
-          <tr class="table-header">
-            <th>Debe retornar un valor de tipo: </th>
-          </tr>
-          <tr class="table-row">
-            <td>${obtenerNombreDeTipoDeParametro(JSON.parse(prueba.salida))}</td>
-          </tr>
-        </thead>
-      </table>
+    const salidaHTML = `
+      <div class="param-header">
+        <span>Debe retornar</span>
+      </div>
+      <div class="param-grid">
+        <div class="param-grid-header">
+          <span>Tipo</span>
+          <span>Valor</span>
+        </div>
+        <div class="param-grid-header">
+          <span>${obtenerNombreDeTipoDeParametro(JSON.parse(prueba.salida))}</span>
+          <span>${JSON.parse(prueba.salida)}</span>
+        </div>
+      </div>
     `;
+
+    const elemento = `
+      <div class="test-accordion prueba">
+        <div class="id-prueba" style="display: none;">${prueba.idPrueba}</div>
+        <div class="test-header">
+          <div class="test-title">
+            <span>Prueba</span>
+          </div>
+          <i class="icon-down-dir dropdown-toggle" onclick="toggleDropdown(event)"></i>
+        </div>
+        <div class="test-main-content">
+          <div class="test-content">
+            <div class="param-header">
+              <span>Función</span>
+            </div>
+            <div class="param-grid">
+              <div class="param-grid-header">
+                <span>Nombre</span>
+              </div>
+              <div class="param-grid-header">
+                <span>${prueba.nombreFuncion}</span>
+              </div>
+            </div>
+          </div>
+          <div class="test-content">
+            <div class="param-header">
+              <span>Parámetros</span>
+            </div>
+            <div class="param-grid parametros">
+              <div class="param-grid-header">
+                <span>Tipo</span>
+                <span>Valor</span>
+              </div>
+              ${parametrosHTML}
+            </div>
+          </div>
+          <div class="test-content">
+            ${salidaHTML}
+          </div>
+        </div>
+      </div>
+    `;
+    element.innerHTML += elemento;
   });
 };
+
+window.toggleDropdown = toggleDropdown;
+window.eliminarParametro = eliminarParametro

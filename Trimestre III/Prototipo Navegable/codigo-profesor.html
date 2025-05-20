@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="style/navigation.css">
   <link rel="stylesheet" href="style/tablas.css">
   <link rel="stylesheet" href="style/codigo.css">
+  <link rel="stylesheet" href="style/pruebas.css">
+  <link rel="stylesheet" href="style/agente-ai.css">
 </head>
 
 <body>
@@ -84,43 +86,58 @@
               </div>
             </div>
           </div>
-          <div class="editor-section">
-            <div class="exercise">
-              <div class="editor-title exercise-title">
-                <div class="editor-title-item">
-                  <i class="icon-circle-empty icon-accent"></i>
-                  <p>Ejercicio 1</p>
-                </div>
+          <div class="editor-section tabs">
+            <div class="editor-title exercise-title tab-container">
+              <div class="editor-title-item tab">
+                <i class="icon-circle-empty icon-accent"></i>
+                <p>Ejercicio</p>
               </div>
-              <div class="editor-body exercise-description">
-                <p class="descripcion-ejercicio">
-                </p>
-                <div class="pruebas">
-
-                </div>
+              <div class="editor-title-item tab">
+                <i class="icon-circle-empty icon-accent"></i>
+                <p>Consola</p>
+              </div>
+              <div class="editor-title-item tab">
+                <i class="icon-circle-empty icon-accent"></i>
+                <p>Ayuda</p>
               </div>
             </div>
-            <div class="console">
-              <div class="editor-title console-title">
-                <div class="editor-title-item">
-                  <i class="icon-circle-empty icon-accent"></i>
-                  <p>Consola</p>
-                </div>
-                <div class="editor-title-item">
-                  <p>Resuelto: </p>
-                  <i class="icon-ok checkmark console-icon"></i>
-                  <p>A tiempo: </p>
-                  <i class="icon-clock clock console-icon"></i>
+            <div class="tab-content">
+              <div class="exercise tab-item">
+                <div class="editor-body exercise-description">
+                  <p class="descripcion-ejercicio">
+                  </p>
+                  <div class="pruebas">
+                  </div>
                 </div>
               </div>
-              <div class="editor-body console-info">
-                <p>
-                  Salida del programa:
-                  <br>
-                  15
-                  <br><br>
-                  Prueba #1 . . . . . . <i class="icon-success">CORRECTA</i>
-                </p>
+              <div class="console tab-item">
+                <div class="editor-body console-info">
+                  <p>
+                    Salida del programa:
+                    <br>
+                    15
+                    <br><br>
+                    Prueba #1 . . . . . . <i class="icon-success">CORRECTA</i>
+                  </p>
+                </div>
+                <div class="editor-title console-title">
+                  <div class="editor-title-item">
+                    <p>Resuelto: </p>
+                    <i class="icon-ok checkmark console-icon"></i>
+                    <p>A tiempo: </p>
+                    <i class="icon-clock clock console-icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="analysis tab-item">
+                <div class="messages">
+                </div>
+                <form class="chat">
+                  <input class="chat-input" type="text" placeholder="Escribe un texto aquí">
+                  <button class="chat-submit">
+                    <i class="icon-direction"></i>
+                  </button>
+                </form>
               </div>
             </div>
           </div>
@@ -129,6 +146,7 @@
     </main>
   </div>
   <script type="module" src="./js/features/codigo/codigo.profesor.js"></script>
+  <script type="module" src="./js/features/codigo/codigo.analisis.js"></script>
 </body>
 
 </html>

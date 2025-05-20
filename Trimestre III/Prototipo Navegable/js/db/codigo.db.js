@@ -1,4 +1,4 @@
-import { obtenerIdUsuario } from "./usuarios.db.js";
+  import { obtenerIdUsuario } from "./usuarios.db.js";
 import { obtenerEjercicio, obtenerIdEjercicio } from "./ejercicios.db.js";
 import { obtenerIdAula } from "./aulas.db.js";
 
@@ -8,6 +8,14 @@ export const obtenerIdCodigo = () => {
 
 export const obtenerListaCodigos = () => {
   return JSON.parse(localStorage.getItem("codigos")) || [];
+}
+
+export const obtenerListaCodigosPorAula = (idAula = obtenerIdAula()) => {
+  const codigos = obtenerListaCodigos();
+
+  const codigosAula = codigos.filter(c => c.idAula == idAula)
+
+  return codigosAula
 }
 
 export const obtenerListaCodigosPorEjercicio = (idEjercicio = obtenerIdEjercicio()) => {
@@ -66,7 +74,7 @@ export const crearItemCodigo = (idUsuario = obtenerIdUsuario()) => {
 export const crearCodigo = (idUsuario = obtenerIdUsuario()) => {
   const idCodigo = obtenerIdCodigo()
   const codigos = obtenerListaCodigos();
-  const nuevoCodigo = crearItemCodigo(idUsuario) 
+  const nuevoCodigo = crearItemCodigo(idUsuario)
 
   codigos.push(nuevoCodigo)
 
