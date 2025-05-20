@@ -10,7 +10,7 @@
 .message {
     width: 90%;
     max-height: 100;
-    padding: 15px;
+    padding: 15px 25px;
     background-color: var(--card);
     border-radius: 5px;
 }

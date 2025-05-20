@@ -1,10 +1,14 @@
+import { marked } from '../../lib/marked.esm.js'
 import { pedirAnalisisDeCodigo } from '../../api/gemini.api.js'
 
 let waiting = false
 
 const agregarMensaje = (tipoUsuario, mensaje) => {
-    document.querySelector(".messages").innerHTML += `<p class="message ${tipoUsuario}">${mensaje}</p>`
-}
+    const p = document.createElement("div");
+    p.className = `message ${tipoUsuario}`;
+    p.innerHTML = marked.parse(mensaje);
+    document.querySelector(".messages").appendChild(p);
+};
 
 document.querySelector('.chat').addEventListener("submit", async (e) => {
     e.preventDefault()
