@@ -75,14 +75,14 @@
                 <div class="editor-title-item">
                   <select class="language-select">
                     <option selected value="python">Python</option>
-                    <option value="cpp">C++</option>
+                    <option value="javascript">JavaScript</option>
                     <option value="html">HTML</option>
                   </select>
                   <i class="icon-play-circled icon-accent pointer"></i>
                 </div>
               </div>
               <div class="editor-body code-textarea">
-                <textarea name="code" id="code"></textarea>
+                <div id="editor" class="code"></div>
               </div>
             </div>
           </div>
@@ -145,6 +145,9 @@
       </div>
     </main>
   </div>
+  <script src="./js/lib/ace/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/lib/ace/src-min-noconflict/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+  <script type="module" src="./js/features/codigo/codigo.editor.js"></script>
   <script type="module" src="./js/features/codigo/codigo.profesor.js"></script>
   <script type="module" src="./js/features/codigo/codigo.analisis.js"></script>
 </body>

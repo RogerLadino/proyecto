@@ -1,5 +1,6 @@
-import { marked } from '../../lib/marked.esm.js'
+import { marked } from '../../lib/marked/marked.esm.js'
 import { pedirAnalisisDeCodigo } from '../../api/gemini.api.js'
+import { editor } from './codigo.editor.js'
 
 let waiting = false
 
@@ -23,7 +24,7 @@ document.querySelector('.chat').addEventListener("submit", async (e) => {
 
         agregarMensaje('user', mensaje)
 
-        const codigo = document.getElementById("code").value
+        const codigo = editor.getValue()
 
         const descripcion = document.querySelector('.descripcion-ejercicio').innerHTML
 

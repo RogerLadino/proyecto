@@ -3,6 +3,7 @@ import { obtenerEjercicio, obtenerIdEjercicio } from "../../db/ejercicios.db.js"
 import { obtenerListaCodigos, obtenerCodigo, crearCodigo, editarCodigo, actualizarNota, obtenerIdCodigo, obtenerListaCodigosPorEjercicio } from "../../db/codigo.db.js";
 import { esProfesor, obtenerAula } from "../../db/aulas.db.js";
 import { mostrarPruebas } from "../pruebas/pruebas.handler.js";
+import { editor, cambiarLenguaje } from "./codigo.editor.js";
 
 export const mostrarTituloEjercicio = (titulo) => {
   document.querySelectorAll('.titulo-ejercicio').forEach((elemento) => {
@@ -26,13 +27,12 @@ export const actualizarCodigo = (idCodigo) => {
   const codigos = obtenerListaCodigos();
   const codigoUsuario = codigos.find(c => c.idCodigo == idCodigo);
 
-  const codeElement = document.getElementById("code");
-  codeElement.value = codigoUsuario.codigo;
+  editor.setValue(codigoUsuario.codigo);
 
   const lenguaje = document.querySelector(".language-select").value;
 
-  codeElement.addEventListener("input", () => {
-    const codigo = codeElement.value;
+  editor.getSession().on("change", () => {
+    const codigo = editor.getValue();
     editarCodigo(codigo, lenguaje);
   });
 };
@@ -40,26 +40,25 @@ export const actualizarCodigo = (idCodigo) => {
 const cargarCodigo = (idCodigo) => {
   localStorage.setItem("idCodigo", idCodigo);
 
-  const codeElement = document.getElementById("code");
   const codigoUsuario = obtenerCodigo();
 
-  codeElement.value = codigoUsuario.codigo;
+  editor.setValue(codigoUsuario.codigo);
 }
 
 const actualizarPermisosDeEdicion = () => {
   const codigoUsuario = obtenerCodigo();
   const idUsuario = obtenerIdUsuario();
-  const codeElement = document.getElementById("code");
+  const codeElement = document.getElementById("code");  
 
   // Si es profesor o el código es del usuario actual, se permite la edición
   if (esProfesor() || codigoUsuario.idUsuario == idUsuario) {
-    codeElement.readOnly = false;
+    editor.setReadOnly(false);
 
     if (esProfesor()) {
       document.querySelector('.note-input').value = codigoUsuario.notaObtenida;
     }
   } else {
-    codeElement.readOnly = true;
+    editor.setReadOnly(true);
   }
 }
 
@@ -168,7 +167,18 @@ const activarTab = (tabs, tabContents, index) => {
   tabContents[index].style.display = "flex";
 };
 
+const configurarLenguaje = () => {
+  const select = document.querySelector(".language-select");
+
+  select.addEventListener("change", (e) => {
+    const lenguaje = e.target.value;
+    
+    cambiarLenguaje(lenguaje);
+  });
+}
+
 export const mostrarInterfaz = () => {
+  configurarLenguaje()
   mostrarCodigo();
   mostrarBarraLateral();
   mostrarEjercicio();
