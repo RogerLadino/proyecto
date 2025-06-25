@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/register.css">
+  <title>Registrarse</title>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="circle"></div>
+      <span class="brand">Nombre</span>
+    </div>
+
+    <h2>Registrarse</h2>
+
+    <form class="form" action="login.html" method="get">
+      <div class="row">
+        <div class="input-group">
+          <label><span class="dot"></span> Primer nombre</label>
+          <input type="text" id="nombre1">
+        </div>
+        <div class="input-group">
+          <label><span class="dot"></span> Segundo nombre</label>
+          <input type="text" id="nombre2">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-group">
+          <label><span class="dot"></span> Primer apellido</label>
+          <input type="text" id="apellido1">
+        </div>
+        <div class="input-group">
+          <label><span class="dot"></span> Segundo apellido</label>
+          <input type="text" id="apellido2">
+        </div>
+      </div>
+
+      <div class="input-group full">
+        <label><span class="dot"></span> Email</label>
+        <input type="email">
+      </div>
+
+      <div class="input-group full">
+        <label><span class="dot"></span> Contraseña</label>
+        <input type="password">
+      </div>
+
+      <button type="submit" class="submit-btn">Registrarse</button>
+
+      <p class="footer">
+        ¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a>
+      </p>
+    </form>
+  </div>
+<script type="module" src="./js/features/acceso/acceso.register.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iniciar Sesión</title>
+  <link rel="stylesheet" href="style/login.css" />
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="logo">
+      <div class="circle"></div>
+      <span class="logo-text">Nombre</span>
+    </a>
+
+    <h1>Iniciar Sesión</h1>
+    
+    <form>
+      <div class="form-group">
+        <label for="user-email">
+          <span class="dot"></span>
+          <span class="label-text">Email</span>
+        </label>
+        <input 
+          type="email" 
+          id="user-email" 
+          required 
+          aria-describedby="email-help"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="user-password">
+          <span class="dot"></span>
+          <span class="label-text">Contraseña</span>
+        </label>
+        <input 
+          type="password" 
+          id="user-password" 
+          required
+          aria-describedby="password-help"
+        />
+      </div>
+
+      <button type="submit">Iniciar sesión</button>
+    </form>
+
+    <p class="footer-text">
+      ¿No tienes una cuenta? <a href="register.html">Regístrate!</a><br />
+      ¿Olvidaste tu contraseña? <a href="password.html">Recupérala!</a>
+    </p>
+  </div>
+  <script type="module" src="./js/features/acceso/acceso.login.js"></script>
+</body>
+</html>

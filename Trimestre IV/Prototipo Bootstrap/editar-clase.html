@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio</title>
+  <link rel="stylesheet" href="style/general.css">
+  <link rel="stylesheet" href="style/icons.css">
+  <link rel="stylesheet" href="style/navigation.css">
+  <link rel="stylesheet" href="style/clases.css">
+</head>
+
+<body>
+  <nav class="top-navbar">
+    <div class="nav-left">
+      <a href="clases.html" class="logo-link">
+        <div class="app-logo"></div>
+        <h1 class="app-name">Nombre</h1>
+      </a>
+    </div>
+    <div class="nav-right">
+      <div class="user-circle">
+        <i class="icon-user"></i>
+        <div class="dropdown-menu">
+          <a href="index.html" class="dropdown-item">Cerrar sesión</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <aside class="sidebar">
+      <nav class="side-nav">
+        <ul>
+          <i class="divisor"></i>
+          <li class="nav-item home">
+            <a href="clases.html">
+              <i class="icon-home"></i>
+              <span>Inicio</span>
+            </a>
+          </li>
+          <i class="divisor"></i>
+          <li class="nav-item class1">
+            <div class="class-icon">
+              <i class="empty-square"></i>
+            </div>
+            <a href="lista-ejercicios-profesor.html">Clase 1</a>
+          </li>
+          <li class="nav-item class2">
+            <div class="class-icon">
+              <i class="empty-square"></i>
+            </div>
+            <a href="lista-ejercicios.html">Clase 2</a>
+          </li>
+          <li class="nav-item class3">
+            <div class="class-icon">
+              <i class="empty-square"></i>
+            </div>
+            <span>Clase 3</span>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="titulo-clase">
+        <div class="titulo">
+          <div class="cuadrado"></div>
+          <h1>Editar Clase</h1>
+        </div>
+      </div>
+      <div class="contenedor">
+        <div class="input">
+          <div class="label">
+            <i class="icon-circle-empty"></i>
+            <p>Nombre de la clase</p>
+          </div>
+          <div class="campo">
+            <input type="text">
+          </div>
+        </div>
+        <div class="botones">
+          <a class="boton-borrar" href="clases.html">
+            Borrar
+          </a>
+          <a class="boton-guardar" href="lista-ejercicios-profesor.html">
+            Guardar
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="./js/features/aulas/aula.editar.js"></script>
+  <script src="./js/features/aulas/aula.handler.js" type="module"></script>
+  <script type="module" src="./js/features/aulas/aula.sidebar.js"></script>
+</body>
+
+</html>

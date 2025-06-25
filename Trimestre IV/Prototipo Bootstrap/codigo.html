@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio</title>
+  <link rel="stylesheet" href="style/general.css">
+  <link rel="stylesheet" href="style/icons.css">
+  <link rel="stylesheet" href="style/navigation.css">
+  <link rel="stylesheet" href="style/tablas.css">
+  <link rel="stylesheet" href="style/codigo.css">
+  <link rel="stylesheet" href="style/pruebas.css">
+  <link rel="stylesheet" href="style/agente-ai.css">
+</head>
+
+<body>
+  <nav class="top-navbar">
+    <div class="nav-left">
+      <a href="clases.html" class="logo-link">
+        <div class="app-logo"></div>
+        <h1 class="app-name">Nombre</h1>
+      </a>
+    </div>
+    <div class="nav-right">
+      <div class="user-circle">
+        <i class="icon-user"></i>
+        <div class="dropdown-menu">
+          <a href="index.html" class="dropdown-item">Cerrar sesión</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <nav class="sidebar">
+      <a class="nav-item" href="ejercicio.html">
+        <i class="icon-circle-empty icon-accent"></i>
+        <span class="nav-item-header titulo-ejercicio">Ejercicio 1</span>
+      </a>
+    </nav>
+    <main class="main-content">
+      <div class="main-editor-container">
+        <div class="student-info">
+          <div class="student-info-item">
+            <i class="icon-circle icon-warning"></i>
+            <p class="nombre-usuario"></p>
+          </div>
+        </div>
+        <div class="editor-container">
+          <div class="editor-section">
+            <div class="code">
+              <div class="editor-title code-title">
+                <div class="editor-title-item">
+                  <i class="icon-circle-empty icon-accent"></i>
+                  <p>Código</p>
+                </div>
+                <div class="editor-title-item">
+                  <select class="language-select">
+                    <option selected value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="html">HTML</option>
+                  </select>
+                  <i class="icon-play-circled icon-accent pointer"></i>
+                </div>
+              </div>
+              <div class="editor-body code-textarea">
+                <div id="editor" class="code"></div>
+              </div>
+            </div>
+          </div>
+          <div class="editor-section tabs">
+            <div class="editor-title exercise-title tab-container">
+              <div class="editor-title-item tab">
+                <i class="icon-circle-empty icon-accent"></i>
+                <p>Ejercicio</p>
+              </div>
+              <div class="editor-title-item tab">
+                <i class="icon-circle-empty icon-accent"></i>
+                <p>Consola</p>
+              </div>
+              <div class="editor-title-item tab">
+                <i class="icon-circle-empty icon-accent"></i>
+                <p>Ayuda</p>
+              </div>
+            </div>
+            <div class="tab-content">
+              <div class="exercise tab-item">
+                <div class="editor-body exercise-description">
+                  <p class="descripcion-ejercicio"></p>
+                  <div class="pruebas"></div>
+                </div>
+              </div>
+              <div class="console tab-item">
+                <div class="editor-body console-info">
+                  <p>
+                    Salida del programa:
+                    <br>
+                    Hello Roger, how are you?
+                    <br><br>
+                    Prueba #1 . . . . . . <i class="icon-success">CORRECTA</i>
+                  </p>
+                </div>
+                <div class="editor-title console-title">
+                  <div class="editor-title-item">
+                    <p>Resuelto: </p>
+                    <i class="icon-cancel checkmark console-icon"></i>
+                    <p>A tiempo: </p>
+                    <i class="icon-clock clock console-icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="analysis tab-item">
+                <div class="messages"></div>
+                <form class="chat">
+                  <input class="chat-input" type="text" placeholder="Escribe un texto aquí">
+                  <button class="chat-submit">
+                    <i class="icon-direction"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="./js/lib/ace/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/lib/ace/src-min-noconflict/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+  <script type="module" src="./js/features/codigo/codigo.editor.js"></script>
+  <script type="module" src="./js/features/codigo/codigo.js"></script>
+  <script type="module" src="./js/features/codigo/codigo.analisis.js"></script>
+</body>
+
+</html>
