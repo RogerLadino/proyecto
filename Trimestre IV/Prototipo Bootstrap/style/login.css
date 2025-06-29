@@ -1,22 +1,27 @@
+/* Estilos base del cuerpo, se mantienen igual */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #1f1a1a;
   color: #fff;
+  /* Añadimos un padding para que el logo no quede pegado al borde en pantallas pequeñas */
+  padding-top: 40px; 
 }
 
-.container {
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 20px;
-  text-align: center;
-}
+/* --- REGLAS ELIMINADAS --- */
+/* Se eliminó .container, form, y .form-group porque Bootstrap los maneja ahora */
+
+/* --- ESTILOS QUE SE MANTIENEN --- */
 
 .logo {
-  display: flex;
+  display: inline-flex; /* Usar inline-flex para que no ocupe todo el ancho */
   align-items: center;
   margin-bottom: 30px;
   text-decoration: none;
+}
+
+.logo:hover {
+  color: #fff; /* Evita que el enlace del logo cambie de color */
 }
 
 .circle {
@@ -37,24 +42,11 @@ h1 {
   font-weight: normal;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  margin-bottom: 15px;
-}
-
-label {
+/* Se mantiene el estilo de la etiqueta y el punto */
+label { /* La clase .form-label de Bootstrap ya tiene display: inline-block */
   margin-bottom: 5px;
   font-size: 13px;
-  display: flex;
+  display: flex !important; /* Forzamos flex para alinear el punto personalizado */
   align-items: center;
   gap: 6px;
 }
@@ -72,35 +64,7 @@ label {
   font-size: 13px;
 }
 
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 8px 10px;
-  background-color: #2e2828;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 13px;
-}
-
-button {
-  background-color: #3a3434;
-  color: white;
-  border: none;
-  padding: 10px 25px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 20px;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #4b4040;
-}
-
 .footer-text {
-  margin-top: 20px;
   font-size: 13px;
   line-height: 1.6;
 }
@@ -109,4 +73,43 @@ button:hover {
   color: white;
   font-weight: bold;
   text-decoration: underline;
+}
+
+/* --- ESTILOS AJUSTADOS PARA SOBRESCRIBIR BOOTSTRAP --- */
+
+/* Sobrescribimos la clase .form-control de Bootstrap para mantener tu diseño */
+.form-control {
+  background-color: #2e2828;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 13px;
+  padding: 8px 10px;
+}
+
+/* Importante: Mantenemos el color del texto y fondo cuando el input está en foco (activo) */
+.form-control:focus {
+  color: white;
+  background-color: #2e2828;
+  border-color: #2e2828; /* Evita que aparezca un borde de color */
+  outline: 0;
+  box-shadow: none; /* Elimina el resplandor azul de Bootstrap */
+}
+
+/* Sobrescribimos la clase .btn de Bootstrap */
+.btn {
+  background-color: #3a3434;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+/* Mantenemos el efecto hover y lo aplicamos también al foco */
+.btn:hover, .btn:focus {
+  background-color: #4b4040;
+  color: white;
+  box-shadow: none; /* Asegura que no haya resplandor en el foco */
 }

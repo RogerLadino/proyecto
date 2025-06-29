@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+  
   <link rel="stylesheet" href="style/register.css">
   <title>Registrarse</title>
 </head>
 <body>
-  <div class="container">
+  <div class="container register-container">
     <div class="header">
       <div class="circle"></div>
       <span class="brand">Nombre</span>
@@ -16,45 +18,47 @@
     <h2>Registrarse</h2>
 
     <form class="form" action="login.html" method="get">
-      <div class="row">
-        <div class="input-group">
-          <label><span class="dot"></span> Primer nombre</label>
-          <input type="text" id="nombre1">
+      <div class="row g-3 mb-2">
+        <div class="col-6">
+          <label for="nombre1" class="form-label"><span class="dot"></span> Primer nombre</label>
+          <input type="text" id="nombre1" class="form-control">
         </div>
-        <div class="input-group">
-          <label><span class="dot"></span> Segundo nombre</label>
-          <input type="text" id="nombre2">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="input-group">
-          <label><span class="dot"></span> Primer apellido</label>
-          <input type="text" id="apellido1">
-        </div>
-        <div class="input-group">
-          <label><span class="dot"></span> Segundo apellido</label>
-          <input type="text" id="apellido2">
+        <div class="col-6">
+          <label for="nombre2" class="form-label"><span class="dot"></span> Segundo nombre</label>
+          <input type="text" id="nombre2" class="form-control">
         </div>
       </div>
 
-      <div class="input-group full">
-        <label><span class="dot"></span> Email</label>
-        <input type="email">
+      <div class="row g-3 mb-2">
+        <div class="col-6">
+          <label for="apellido1" class="form-label"><span class="dot"></span> Primer apellido</label>
+          <input type="text" id="apellido1" class="form-control">
+        </div>
+        <div class="col-6">
+          <label for="apellido2" class="form-label"><span class="dot"></span> Segundo apellido</label>
+          <input type="text" id="apellido2" class="form-control">
+        </div>
       </div>
 
-      <div class="input-group full">
-        <label><span class="dot"></span> Contraseña</label>
-        <input type="password">
+      <div class="mb-2">
+        <label for="email" class="form-label"><span class="dot"></span> Email</label>
+        <input type="email" id="email" class="form-control">
       </div>
 
-      <button type="submit" class="submit-btn">Registrarse</button>
+      <div class="mb-3">
+        <label for="password" class="form-label"><span class="dot"></span> Contraseña</label>
+        <input type="password" id="password" class="form-control">
+      </div>
+
+      <button type="submit" class="btn w-100 submit-btn">Registrarse</button>
 
       <p class="footer">
         ¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a>
       </p>
     </form>
   </div>
-<script type="module" src="./js/features/acceso/acceso.register.js"></script>
+  
+  <script type="module" src="./js/features/acceso/acceso.register.js"></script>
+  <script src="bootstrap/bootstrap.min.js"></script>
 </body>
 </html>
